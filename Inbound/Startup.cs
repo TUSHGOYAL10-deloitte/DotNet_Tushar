@@ -13,6 +13,7 @@ using Inbound.Repository;
 using Inbound.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using MassTransit;
 
 namespace Inbound
 {
@@ -29,6 +30,7 @@ namespace Inbound
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
