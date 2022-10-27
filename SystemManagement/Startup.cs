@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,6 +34,21 @@ namespace SystemManagement
         {
             services.AddMvc();
             services.AddSwaggerGen();
+            services.AddAuthentication(options => 
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(o =>
+           {
+               o.Authority = "https://localhost:5001/";
+               o.Audience = "myresourceapi";
+               o.RequireHttpsMetadata = false;
+           });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("PublicSecure", policy => policy.RequireClaim("client_id", "secret_client_id"));
+            });
             services.AddControllersWithViews();
             IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
             services.AddSingleton(mapper);
@@ -75,7 +91,7 @@ namespace SystemManagement
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

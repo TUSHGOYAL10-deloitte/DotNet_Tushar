@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemManagement", "SystemM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inbound", "Inbound\Inbound.csproj", "{8A5E799B-2B4D-4BF3-B4B4-AD2C95EED0CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{01AB798B-2B46-48FE-AF4F-71604F5ECB62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8A5E799B-2B4D-4BF3-B4B4-AD2C95EED0CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A5E799B-2B4D-4BF3-B4B4-AD2C95EED0CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A5E799B-2B4D-4BF3-B4B4-AD2C95EED0CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01AB798B-2B46-48FE-AF4F-71604F5ECB62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01AB798B-2B46-48FE-AF4F-71604F5ECB62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01AB798B-2B46-48FE-AF4F-71604F5ECB62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01AB798B-2B46-48FE-AF4F-71604F5ECB62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

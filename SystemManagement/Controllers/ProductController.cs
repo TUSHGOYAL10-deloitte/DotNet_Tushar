@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace SystemManagement.Controllers
             _productRepository = productRepository;
             this._reponse = new ResponseDto();
         }
-
+        [Authorize(Policy = "PublicSecure")]
         [HttpGet]
         public async Task<Object> Get()
         {
@@ -41,6 +42,7 @@ namespace SystemManagement.Controllers
             return _reponse;
         }
 
+        [Authorize(Policy = "PublicSecure")]
         [HttpGet]
         [Route("{id}")]
         public async Task<Object> Get(int id)
@@ -103,6 +105,7 @@ namespace SystemManagement.Controllers
             return _reponse;
         }
 
+        [Authorize(Policy = "PublicSecure")]
         [HttpDelete]
         public async Task<Object> Delete(int id)
         {
