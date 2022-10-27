@@ -85,7 +85,7 @@ namespace SystemManagement.Controllers
             
 
         }
-
+        [Authorize(Policy = "PublicSecure")]
         [HttpPut]
         public async Task<Object> Put([FromBody] ProductDto productDto)
         {

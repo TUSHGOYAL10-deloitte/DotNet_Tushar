@@ -1,5 +1,6 @@
 ﻿using Inbound.Models.Dto;
 using Inbound.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Inbound.Controllers
             _orderRepository = orderRepository;
             this._response = new ResponseDto();
         }
-
+        [Authorize(Policy = "PublicSecure")]
         [HttpGet]
         public async Task<Object> Get()
         {
@@ -66,7 +67,7 @@ namespace Inbound.Controllers
             }
             return _response;
         }
-        
+        [Authorize(Policy = "PublicSecure")]
         [HttpPut]
         public async Task<object> Put([FromBody] OrderDto orderDto)
         {
@@ -82,8 +83,9 @@ namespace Inbound.Controllers
             }
             return _response;
         }
-        [HttpDelete]
 
+        [Authorize(Policy = "PublicSecure")]
+        [HttpDelete]
         public async Task<object> Delete(int id)
         {
             try
